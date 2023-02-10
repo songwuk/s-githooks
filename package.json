@@ -1,9 +1,9 @@
 {
   "name": "s-githooks",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
   "packageManager": "pnpm@7.12.0",
-  "description": "",
+  "description": "provides a configurable hooks",
   "author": "Songwuk <1017301325@qq.com>",
   "license": "MIT",
   "homepage": "https://github.com/songwuk/s-githooks#readme",
@@ -12,38 +12,33 @@
     "url": "git+https://github.com/songwuk/s-githooks.git"
   },
   "bugs": "https://github.com/songwuk/s-githooks/issues",
-  "keywords": [],
+  "keywords": [
+    "githooks",
+    "lint",
+    "steps"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.mjs"
     }
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
+  "main": "./lib/index.mjs",
+  "module": "./lib/index.mjs",
+  "bin": "./lib/bin.mjs",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
+    "postinstall": "node /lib/bin.mjs",
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit"
+    "test": "vitest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.27.0",
@@ -51,13 +46,20 @@
     "@antfu/utils": "^0.5.2",
     "@types/node": "^18.7.18",
     "bumpp": "^8.2.1",
-    "eslint": "^8.23.1",
+    "chalk": "^5.2.0",
+    "eslint": "^8.24.0",
     "esno": "^0.16.3",
+    "lint-staged": "^13.1.0",
     "pnpm": "^7.12.0",
     "rimraf": "^3.0.2",
+    "s-githooks": "file:./s-githooks",
     "typescript": "^4.8.3",
     "unbuild": "^0.8.11",
     "vite": "^3.1.2",
     "vitest": "^0.23.4"
+  },
+  "s-githooks": {
+    "pre-commit": "npx lint-staged",
+    "prepare-commit-msg": "npm run verifycommit"
   }
 }

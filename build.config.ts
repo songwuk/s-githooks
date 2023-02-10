@@ -3,8 +3,16 @@ import { defineBuildConfig } from 'unbuild'
 export default defineBuildConfig({
   entries: [
     'src/index',
+    'src/bin',
+    // mkdist builder transpiles file-to-file keeping original sources structure
+    {
+      builder: 'mkdist',
+      input: './src/json',
+      outDir: './lib/json',
+    },
   ],
-  declaration: true,
+  outDir: 'lib',
+  declaration: false,
   clean: true,
   rollup: {
     emitCJS: true,
