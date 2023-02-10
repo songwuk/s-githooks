@@ -30,14 +30,18 @@
   "files": [
     "lib"
   ],
+  "engines": {
+    "node": ">=13.2.0"
+  },
   "scripts": {
-    "postinstall": "node /lib/bin.mjs",
+    "postinstall": "node lib/bin.mjs",
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
     "start": "esno src/index.ts",
+    "verifycommit": "esno src/verifyCommit.ts",
     "test": "vitest"
   },
   "devDependencies": {
@@ -60,6 +64,9 @@
   },
   "s-githooks": {
     "pre-commit": "npx lint-staged",
-    "prepare-commit-msg": "npm run verifycommit"
+    "commit-msg": "npm run verifycommit"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
   }
 }
