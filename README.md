@@ -1,8 +1,8 @@
 # s-githooks
 > provides a configurable git-hooks
 
-- [] 集成lint-staged
-- [] 实现自定义git-hooks
+- [x] Built-in lint-staged
+- [x] Implement custom git-hooks
 
 [![NPM version](https://img.shields.io/npm/v/s-githooks?color=a1b858&label=)](https://www.npmjs.com/package/s-githooks)
 
@@ -14,9 +14,14 @@ npm install s-githooks --save-dev
 ```
 
 # Usage
-```sh
-npm pkg set scripts.prepare="s-githooks install"
-npm run prepare
+Add `s-githooks` to your `package.json` Fill it 
+
+For example:
+```json
+{
+  "pre-commit": "npx lint-staged",
+  "commit-msg": "npm run verifycommit"
+}
 ```
 ## License
 
