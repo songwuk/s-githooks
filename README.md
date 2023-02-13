@@ -19,9 +19,20 @@ Add `s-githooks` to your `package.json` Fill it
 For example:
 ```json
 {
-  "pre-commit": "npx lint-staged",
-  "commit-msg": "npm run verifycommit"
+  "s-githooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "npm run verifycommit"
+  }
 }
+```
+Run the CLI script to update the git hooks with the commands from the config:
+```sh
+# [Optional] These 2 steps can be skipped for non-husky users
+git config core.hooksPath .git/hooks/
+rm -rf .git/hooks
+
+# Update ./git/hooks
+npx simple-git-hooks
 ```
 ## License
 
