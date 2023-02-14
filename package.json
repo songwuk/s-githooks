@@ -28,7 +28,8 @@
   "module": "./lib/index.mjs",
   "bin": "./index.mjs",
   "files": [
-    "lib"
+    "lib",
+    "*.mjs"
   ],
   "engines": {
     "node": ">=13.2.0"
