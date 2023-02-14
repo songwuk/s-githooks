@@ -26,7 +26,7 @@
   },
   "main": "./lib/index.mjs",
   "module": "./lib/index.mjs",
-  "bin": "./lib/bin.mjs",
+  "bin": "./index.mjs",
   "files": [
     "lib"
   ],
@@ -56,15 +56,10 @@
     "lint-staged": "^13.1.0",
     "pnpm": "^7.12.0",
     "rimraf": "^3.0.2",
-    "s-githooks": "file:.",
     "typescript": "^4.8.3",
     "unbuild": "^0.8.11",
     "vite": "^3.1.2",
     "vitest": "^0.23.4"
-  },
-  "s-githooks": {
-    "pre-commit": "npx lint-staged",
-    "commit-msg": "npm run verifycommit"
   },
   "lint-staged": {
     "*.js": "eslint --fix"
