@@ -8,13 +8,14 @@ const GIT_HOOKS = JSON.parse(readFileSync(join(_dirname, './json/hooks.json'), {
 /**
  * 检查.git是否存在
  */
-function _checkgitexist(rootPath = cwd()) {
+export function _checkgitexist(rootPath = cwd()) {
   if (!existsSync(join(rootPath, './.git')))
     throw new Error('[INFO]: .git can\'t be found')
 }
 /**
  * 获取当前项目的package.json文件
  * @param projectDir string
+ * @private
  */
 function _getPackageJson(projectDir = cwd()): any {
   const projectRootPath = normalize(join(projectDir, './package.json'))
