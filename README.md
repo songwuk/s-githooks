@@ -32,7 +32,7 @@ git config core.hooksPath .git/hooks/
 rm -rf .git/hooks
 
 # Update ./git/hooks
-npx simple-git-hooks
+npx s-githooks
 ```
 ## License
 
