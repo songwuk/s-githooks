@@ -2,7 +2,6 @@
 /* eslint-disable no-console */
 import { cwd } from 'node:process'
 import { normalize } from 'node:path'
-import { install } from './command'
 import { checkGitHooksInDependencies, setHooksConfig } from '.'
 // const _dirname = dirname(fileURLToPath(new URL(import.meta.url)))
 // console.log(cwd(), _dirname)
@@ -14,7 +13,6 @@ function postinstall() {
   if (checkGitHooksInDependencies(projectDir)) {
     try {
       setHooksConfig(projectDir)
-      install()
     }
     catch (error) {
       console.log(`[ERROR]: ${error}`)
@@ -24,5 +22,4 @@ function postinstall() {
     console.log('[WARN]: You should fill in the correct configuration')
   }
 }
-
 postinstall()
