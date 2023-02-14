@@ -21,6 +21,9 @@ export function install(): void {
     const { error: rmError } = command('rm', ['-rf', hookDir])
     if (rmError)
       throw rmError
+    const { error: installError } = command('npx', ['s-githooks'])
+    if (installError)
+      throw installError
   }
   catch (error) {
     console.log(`[ERROR]: ${error}`)

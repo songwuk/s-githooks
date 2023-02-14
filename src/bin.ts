@@ -13,8 +13,8 @@ function postinstall() {
   const projectDir = normalize(cwd())
   if (checkGitHooksInDependencies(projectDir)) {
     try {
-      install()
       setHooksConfig(projectDir)
+      install()
     }
     catch (error) {
       console.log(`[ERROR]: ${error}`)

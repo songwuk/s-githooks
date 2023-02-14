@@ -1,7 +1,5 @@
 # s-githooks
 > provides a configurable git-hooks
-
-- [x] Built-in lint-staged
 - [x] Implement custom git-hooks
 
 [![NPM version](https://img.shields.io/npm/v/s-githooks?color=a1b858&label=)](https://www.npmjs.com/package/s-githooks)
