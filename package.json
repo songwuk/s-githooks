@@ -38,6 +38,7 @@
   },
   "scripts": {
     "postinstall": "npx unbuild && node lib/bin.mjs",
+    "build": " unbuild ",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
