@@ -6,14 +6,14 @@ import { fileURLToPath } from 'node:url'
 const _dirname = dirname(fileURLToPath(new URL(import.meta.url)))
 const GIT_HOOKS = JSON.parse(readFileSync(join(_dirname, './json/hooks.json'), { encoding: 'utf-8' }))
 /**
- * 检查.git是否存在
+ * make sure .git is exists
  */
 export function _checkgitexist(rootPath = cwd()) {
   if (!existsSync(join(rootPath, './.git')))
     throw new Error('[INFO]: .git can\'t be found')
 }
 /**
- * 获取当前项目的package.json文件
+ * get package.json
  * @param projectDir string
  * @private
  */
@@ -27,7 +27,7 @@ function _getPackageJson(projectDir = cwd()): any {
   }
 }
 /**
- * 校验是否安装了s-githooks
+ * check `s-githooks` in package.json
  * @param projectPath
  */
 function checkGitHooksInDependencies(projectPath = cwd()) {
@@ -37,7 +37,7 @@ function checkGitHooksInDependencies(projectPath = cwd()) {
   return 's-githooks' in packageJsonContent.devDependencies
 }
 /**
- *
+ * export set hooks
  */
 function setHooksConfig(projectRootPath = cwd()) {
   const config = _getConfig(projectRootPath)

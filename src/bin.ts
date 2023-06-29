@@ -3,8 +3,6 @@
 import { cwd } from 'node:process'
 import { normalize } from 'node:path'
 import { checkGitHooksInDependencies, setHooksConfig } from '.'
-// const _dirname = dirname(fileURLToPath(new URL(import.meta.url)))
-// console.log(cwd(), _dirname)
 /**
  * modified https://github.com/toplenboren/simple-git-hooks/blob/master/postinstall.js
  */

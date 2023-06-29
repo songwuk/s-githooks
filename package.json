@@ -29,20 +29,19 @@
   "bin": "./index.mjs",
   "files": [
     "lib",
-    "*.mjs"
+    "*.mjs",
+    "*.cjs",
+    "*.js"
   ],
   "engines": {
     "node": ">=13.2.0"
   },
   "scripts": {
-    "postinstall": "node lib/bin.mjs",
-    "build": "unbuild",
+    "postinstall": "npx unbuild && node lib/bin.mjs",
     "dev": "unbuild --stub",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
-    "verifycommit": "esno src/verifyCommit.ts",
     "test": "vitest"
   },
   "devDependencies": {
